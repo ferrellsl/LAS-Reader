@@ -16,7 +16,7 @@
 #endif
 
 
-FILE *myfileout; //our putput file
+FILE *myfileout; //our output file
 
 I64 p_count;
 F64 **LASData; //array to hold our input points
