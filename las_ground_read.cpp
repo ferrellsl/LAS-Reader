@@ -20,8 +20,8 @@ FILE *myfileout; //our output file
 
 I64 p_count;
 F64 **LASData; //array to hold our input points
-F64 **OUTData; //array to hold out ground points
-I64 ground_points; //total of our ground points
+F64 **OUTData; //array to hold our ground points
+I64 ground_points; //total number of ground points
 F64 myx_scale, myy_scale, myz_scale, myx_offset, myy_offset, myz_offset;
 
 
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 		printf("Usage: las_ground_reader.exe input.laz output.txt\n");
 		return NULL;
 	}
-
+//read LAS header and get number of points, offsets, and scale factors
 	myx_offset = lasreader->header.x_offset; //get x offset
 	myy_offset = lasreader->header.y_offset; //get y offset
 	myz_offset = lasreader->header.z_offset; //get z offset
