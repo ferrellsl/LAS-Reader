@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1763D0E2-D952-4538-BF42-6851560D5707}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\LAS_ground_read\laslib-inc;D:\LAS_ground_read\laszip-inc</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>D:\LAS_ground_read\laslib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="las_ground_read.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\lasdefinitions.hpp" />
+    <ClInclude Include="inc\lasfilter.hpp" />
+    <ClInclude Include="inc\lasignore.hpp" />
+    <ClInclude Include="inc\laskdtree.hpp" />
+    <ClInclude Include="inc\lasreader.hpp" />
+    <ClInclude Include="inc\lasreaderbuffered.hpp" />
+    <ClInclude Include="inc\lasreadermerged.hpp" />
+    <ClInclude Include="inc\lasreaderpipeon.hpp" />
+    <ClInclude Include="inc\lasreaderstored.hpp" />
+    <ClInclude Include="inc\lasreader_asc.hpp" />
+    <ClInclude Include="inc\lasreader_bil.hpp" />
+    <ClInclude Include="inc\lasreader_bin.hpp" />
+    <ClInclude Include="inc\lasreader_dtm.hpp" />
+    <ClInclude Include="inc\lasreader_las.hpp" />
+    <ClInclude Include="inc\lasreader_ply.hpp" />
+    <ClInclude Include="inc\lasreader_qfit.hpp" />
+    <ClInclude Include="inc\lasreader_shp.hpp" />
+    <ClInclude Include="inc\lasreader_txt.hpp" />
+    <ClInclude Include="inc\lastransform.hpp" />
+    <ClInclude Include="inc\lasutility.hpp" />
+    <ClInclude Include="inc\lasvlr.hpp" />
+    <ClInclude Include="inc\lasvlrpayload.hpp" />
+    <ClInclude Include="inc\laswaveform13reader.hpp" />
+    <ClInclude Include="inc\laswaveform13writer.hpp" />
+    <ClInclude Include="inc\laswriter.hpp" />
+    <ClInclude Include="inc\laswritercompatible.hpp" />
+    <ClInclude Include="inc\laswriter_bin.hpp" />
+    <ClInclude Include="inc\laswriter_las.hpp" />
+    <ClInclude Include="inc\laswriter_qfit.hpp" />
+    <ClInclude Include="inc\laswriter_txt.hpp" />
+    <ClInclude Include="inc\laswriter_wrl.hpp" />
+    <ClInclude Include="laszip_inc\arithmeticdecoder.hpp" />
+    <ClInclude Include="laszip_inc\arithmeticencoder.hpp" />
+    <ClInclude Include="laszip_inc\arithmeticmodel.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamin.hpp" />
+    <ClInclude Include="laszip_inc\bytestreaminout.hpp" />
+    <ClInclude Include="laszip_inc\bytestreaminout_file.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamin_array.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamin_file.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamin_istream.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamout.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamout_array.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamout_file.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamout_nil.hpp" />
+    <ClInclude Include="laszip_inc\bytestreamout_ostream.hpp" />
+    <ClInclude Include="laszip_inc\integercompressor.hpp" />
+    <ClInclude Include="laszip_inc\lasattributer.hpp" />
+    <ClInclude Include="laszip_inc\lasindex.hpp" />
+    <ClInclude Include="laszip_inc\lasinterval.hpp" />
+    <ClInclude Include="laszip_inc\laspoint.hpp" />
+    <ClInclude Include="laszip_inc\lasquadtree.hpp" />
+    <ClInclude Include="laszip_inc\lasquantizer.hpp" />
+    <ClInclude Include="laszip_inc\lasreaditem.hpp" />
+    <ClInclude Include="laszip_inc\lasreaditemcompressed_v1.hpp" />
+    <ClInclude Include="laszip_inc\lasreaditemcompressed_v2.hpp" />
+    <ClInclude Include="laszip_inc\lasreaditemcompressed_v3.hpp" />
+    <ClInclude Include="laszip_inc\lasreaditemcompressed_v4.hpp" />
+    <ClInclude Include="laszip_inc\lasreaditemraw.hpp" />
+    <ClInclude Include="laszip_inc\lasreadpoint.hpp" />
+    <ClInclude Include="laszip_inc\laswriteitem.hpp" />
+    <ClInclude Include="laszip_inc\laswriteitemcompressed_v1.hpp" />
+    <ClInclude Include="laszip_inc\laswriteitemcompressed_v2.hpp" />
+    <ClInclude Include="laszip_inc\laswriteitemcompressed_v3.hpp" />
+    <ClInclude Include="laszip_inc\laswriteitemcompressed_v4.hpp" />
+    <ClInclude Include="laszip_inc\laswriteitemraw.hpp" />
+    <ClInclude Include="laszip_inc\laswritepoint.hpp" />
+    <ClInclude Include="laszip_inc\laszip.hpp" />
+    <ClInclude Include="laszip_inc\laszip_common_v1.hpp" />
+    <ClInclude Include="laszip_inc\laszip_common_v2.hpp" />
+    <ClInclude Include="laszip_inc\laszip_common_v3.hpp" />
+    <ClInclude Include="laszip_inc\laszip_decompress_selective_v3.hpp" />
+    <ClInclude Include="laszip_inc\mydefs.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
