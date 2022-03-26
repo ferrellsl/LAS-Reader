@@ -1,6 +1,6 @@
 
-//This program reads a compressed LAZ point cloud or an uncompressed LAS point cloud file and extracts the ground points based on classification.
-//Points are then written to a text file
+//This program reads a compressed LAZ on umcompressed LAS file and extracts the ground points based on classification.
+//Points are written to a text file
 
 #include <time.h>
 #include <stdio.h>
@@ -20,8 +20,8 @@ FILE *myfileout; //our output file
 
 I64 p_count;
 F64 **LASData; //array to hold our input points
-F64 **OUTData; //array to hold our ground points
-I64 ground_points; //total number of ground points
+
+I64 ground_points; //total of our ground points
 F64 myx_scale, myy_scale, myz_scale, myx_offset, myy_offset, myz_offset;
 
 
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 		printf("Usage: las_ground_reader.exe input.laz output.txt\n");
 		return NULL;
 	}
-//read LAS header and get number of points, offsets, and scale factors
+
 	myx_offset = lasreader->header.x_offset; //get x offset
 	myy_offset = lasreader->header.y_offset; //get y offset
 	myz_offset = lasreader->header.z_offset; //get z offset
@@ -80,25 +80,18 @@ int main(int argc, char *argv[])
 			LASData[ground_points][1] = lasreader->point.get_x();
 			LASData[ground_points][2] = lasreader->point.get_y();
 			LASData[ground_points][3] = lasreader->point.get_z();
-
+			fprintf(myfileout, "%.2llf\t%.2llf\t%.2llf\n", LASData[ground_points][1], LASData[ground_points][2], LASData[ground_points][3]);
 			ground_points++; //count the number of ground points
+
 		}
 	}
 	
 
-	Alloc2dGrid(&OUTData, ground_points + 1, 3);  //initialize our output array making it large enough to hold our ground points
-	for (i = 0; i < ground_points; i++) { //stuff our ground points into the output array and send them to our output file
-		OUTData[i][1] = LASData[i][1];
-		OUTData[i][2] = LASData[i][2];
-		OUTData[i][3] = LASData[i][3];
-		fprintf(myfileout, "%.2llf\t%.2llf\t%.2llf\n", OUTData[i][1], OUTData[i][2], OUTData[i][3]);
-	}
 
 		printf("Done\n");
 	//close everything and release our memory
 		fclose(myfileout);
 		free(&LASData);
-		free(&OUTData);
 		lasreader->close();
 		delete lasreader;
 
