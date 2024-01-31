@@ -1,5 +1,5 @@
 
-//This program reads a compressed LAZ or umcompressed LAS file and extracts the ground points based on classification.
+//This program reads a compressed LAZ or uncompressed LAS file and extracts the ground points based on classification.
 //Points are written to a text file
 
 #include <time.h>
